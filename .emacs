@@ -50,7 +50,7 @@
 (eval-after-load 'auto-complete
   '(add-to-list 'ac-modes 'haskell-interactive-mode))
 
-;;Desativando Bell
+;;Mute Bell
 (setq ring-bell-function 'ignore)
 
 ;;Active linum-mode for all buffers
