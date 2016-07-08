@@ -1,7 +1,46 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Emacs init file
-;; Require Emacs > 24.5.1
+;;; init.el -- Emacs Initial Setup
 
+;; Filename: init.el
+;; Description: Emacs setup
+;; Author: Leonardo Marques Rodrigues <lmrodrigues@riseup.net>
+;; Maintainer: Leonardo Marques Rodrigues <lmrodrigues@riseup.net>
+;; Copyright (C) 2016, Leonardo Marques Rodrigues, all rights reserved.
+;; Created:
+;; Version: 0.1
+;; Last-Updated:
+;;           By: Leonardo Marques Rodrigues
+;; URL: https://github.com/leormarqs/EmacsConfig
+;; Keywords:
+;; Compatibility: GNU Emacs 24.5.1
+;;
+;; Features that might be required by this library:
+;;
+
+;;; This file is NOT part of GNU Emacs
+
+;;; License
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU Affero General Public License as published
+;; by the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU Affero General Public License for more details.
+
+;; You should have received a copy of the GNU Affero General Public License
+;; along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Refs.:
+;; https://www.emacswiki.org/emacs/init-mode.el
+;; http://manenko.com/2016/03/01/setup-emacs-for-rust-development.html
+;; https://bassam.co/emacs/2015/08/24/rust-with-emacs/
+
+;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package Management
 
@@ -19,7 +58,7 @@
 ;; Load and activate emacs packages
 (package-initialize)
 
-;; Download list of packages available from ELPA (Emacs Lisp Package Archive).  
+;; Download list of packages available from ELPA (Emacs Lisp Package Archive).
 ;; Learn about it on http://www.emacswiki.org/emacs/ELPA
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -28,7 +67,10 @@
 (defvar my-packages
   '(atom-one-dark-theme
     ido-ubiquitous
-    smex))
+    smex
+    flycheck
+    projectile
+    company))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -53,14 +95,17 @@
     '("PATH")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Customizations Management
+;; Customizations Managemt
 
 (defvar my-customizations-folder
   (concat user-emacs-directory "customizations/"))
 
 (defvar my-customizations
-  '("ui" ;; User interface
-    "navigation" ;; Navigation commands
+  '("ui"                 ;; User Interface Commands
+    "navigation"         ;; Navigation Commands
+    "editing"            ;; Editing Commands
+    "miscellaneous"      ;; Miscellaneous Commands
+    "setup-company-mode" ;; Company Mode Commands
     ))
 
 (dolist (c my-customizations)
@@ -130,7 +175,7 @@
 ;;   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 ;;   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
 
-;; ;;Activing auto-complete 
+;; ;;Activing auto-complete
 ;; ;(require 'auto-complete)
 ;; ;(global-auto-complete-mode t)
 ;; ;(eval-after-load 'auto-complete
@@ -174,4 +219,7 @@
 ;; 	     ;; Key binding to auto complete and indent
 ;; 	     (local-set-key (kbd "TAB") #'racer-complete-or-indent)))
 
+
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(provide 'init)
+;;; init.el ends here

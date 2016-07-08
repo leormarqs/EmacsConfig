@@ -1,6 +1,6 @@
-;;; miscellaneous.el -- Miscellaneous Customizations Setup
+;;; setup-company-mode.el -- Miscellaneous Customizations Setup
 
-;; Filename: miscellaneous.el
+;; Filename: setup-company-mode.el
 ;; Description: File mode setup
 ;; Author: Leonardo Marques Rodrigues <lmrodrigues@riseup.net>
 ;; Maintainer: Leonardo Marques Rodrigues <lmrodrigues@riseup.net>
@@ -38,13 +38,12 @@
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Company stands for "complete anything" and is a modular in-buffer completion
+;; mechanism. We will use it to enable Rust code autocomplete.
 
-;; Changes all yes/no questions to y/n type
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; No need for ~ files when editing
-(setq create-lockfiles nil)
+;; Turn on company mode
+(defvar company-tooltip-align-annotations t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(provide 'miscellaneous)
-;;; miscellaneous.el ends here
+(provide 'setup-company-mode)
+;;; setup-company-mode.el ends here
