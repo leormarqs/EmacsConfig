@@ -1,7 +1,7 @@
-;;; setup-company-mode.el -- Miscellaneous Customizations Setup
+;;; setup-rust.el -- Rust Mode Setup
 
-;; Filename: setup-company-mode.el
-;; Description: File mode setup
+;; Filename: setup-rust.el
+;; Description: Rust Mode Setup
 ;; Author: Leonardo Marques Rodrigues <lmrodrigues@riseup.net>
 ;; Maintainer: Leonardo Marques Rodrigues <lmrodrigues@riseup.net>
 ;; Copyright (C) 2016, Leonardo Marques Rodrigues, all rights reserved.
@@ -38,27 +38,35 @@
 
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Company stands for "complete anything" and is a modular in-buffer completion
-;; mechanism. We will use it to enable Rust code autocomplete.
+;; Racer allows Emacs to use Racer for Rust code completion and navigation.
 
-(require 'company-racer)
+;; Configuring Racer and Rust-Src path
+(setq racer-cmd "/home/lmrodrigues/.local/bin/racer")
 
-;; Turn on company mode
-;(setq company-tooltip-align-annotations t)
+(setq racer-rust-src-path "/home/lmrodrigues/.rust/src/")
 
-;; Enable company globally for all mode
-(global-company-mode)
-
-;; Reduce the time after which the company auto completion popup opens
-(setq company-idle-delay 0.2)
-
-;; Reduce the number of characters before company kicks in
-(setq company-minimum-prefix-length 1)
-
-(with-eval-after-load 'company
-  (add-to-list 'company-backends 'company-racer)
-  (add-to-list 'company-backends 'company-ghc))
+(unless (getenv "RUST_SRC_PATH")
+  (setenv "RUST_SRC_PATH" "/home/lmrodrigues/.rust/src/"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(provide 'setup-company-mode)
-;;; setup-company-mode.el ends here
+;; Rust-Mode adds Rust syntax highlight, etc.
+;; Flycheck-Rust adds Rust syntax checking and linting to Flycheck.
+
+;; Auto Load Rust-Mode
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+;; Auto Load Racer-Mode
+;(add-hook 'rust-mode-hook  #'racer-mode)
+;; Auto Load ElDoc-Mode
+(add-hook 'rust-mode-hook #'eldoc-mode)
+;; Auto Load Company-Mode
+(add-hook 'rust-mode-hook #'company-mode)
+(add-hook 'rust-mode-hook
+          '(lambda ()
+             (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+	     ;; Key binding to jump to method definition
+	     ;; Key binding to auto complete and indent
+             (local-set-key (kbd "TAB") #'company-indent-or-complete-common)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(provide 'setup-rust)
+;;; setup-rust.el ends here

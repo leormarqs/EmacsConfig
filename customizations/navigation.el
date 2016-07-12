@@ -43,7 +43,7 @@
 ;; you can then access this list through a command or the menu.
 
 ;; Turn on recent files mode
-(defvar recentf-save-file (concat user-emacs-directory ".recentf"))
+(setq recentf-save-file (concat user-emacs-directory ".recentf"))
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
@@ -58,10 +58,10 @@
 
 ;; Turn on interactively do thing mode
 (ido-mode t)
-(defvar ido-enable-flex-matching t)
-(defvar ido-use-filename-at-point nil)
-(defvar ido-auto-merge-work-directories-length -1)
-(defvar ido-use-virtual-buffers t)
+(setq ido-enable-flex-matching t)
+(setq ido-use-filename-at-point nil)
+(setq ido-auto-merge-work-directories-length -1)
+(setq ido-use-virtual-buffers t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ido-ubiquitous mode allows ido usage in as many contexts as possible.
@@ -81,7 +81,7 @@
 
 ;; Turn on smex mode (Must be installed first)
 ;; Can be added to the list of packages to auto install in "../init.el"
-(defvar smex-save-file (concat user-emacs-directory ".smex-items"))
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 

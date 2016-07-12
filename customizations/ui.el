@@ -73,7 +73,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Setup how Emacs interacts with OS.
-(defvar
+(setq
  ;; Commands C-w and C-y to use the clipboard selection.
  x-select-enable-clipboard t
  ;; Commands C-w and C-y to use the primary selection.
