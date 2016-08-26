@@ -102,6 +102,7 @@
 
 (defvar my-customizations
   '("ui"                 ;; User Interface Commands
+    "setup-font"         ;; Default font setup
     "navigation"         ;; Navigation Commands
     "editing"            ;; Editing Commands
     "miscellaneous"      ;; Miscellaneous Commands

@@ -60,6 +60,12 @@
 (blink-cursor-mode 0)
 (setq ring-bell-function 'ignore)
 
+;; Key Binds to buffer navigation
+(global-set-key [M-left] 'windmove-left)
+(global-set-key [M-right] 'windmove-right)
+(global-set-key [M-up] 'windmove-up)
+(global-set-key [M-down] 'windmove-down)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Adjust font size and line spacing
@@ -68,7 +74,7 @@
 
 ;; Load color theme (Must be intalled first).
 ;; Can be added to the list of packages to auto install in "../init.el"
-(load-theme 'atom-one-dark t)
+(load-theme 'misterioso t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
