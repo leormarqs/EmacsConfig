@@ -107,6 +107,7 @@
     "editing"            ;; Editing Commands
     "miscellaneous"      ;; Miscellaneous Commands
     "setup-company-mode" ;; Company Mode Commands
+    "setup-haskell"      ;; Haskell Mode Commands
     ))
 
 (dolist (c my-customizations)
