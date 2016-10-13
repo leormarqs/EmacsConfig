@@ -66,7 +66,32 @@
 ;; http://www.flycheck.org/
 
 ;; Enable flycheck globally
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'after-init-hook 'global-flycheck-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'apropos)
+
+;; Setup how Emacs interacts with OS.
+(setq
+ ;; Commands C-w and C-y to use the clipboard selection.
+ x-select-enable-clipboard t
+ ;; Commands C-w and C-y to use the primary selection.
+ x-select-enable-primary t
+ ;; Apropos commands behave as if they had been given a prefix argument.
+ apropos-do-all t
+ ;; Yank at point regardless of click position.
+ mouse-yank-at-point t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Better commands for cutting
+(defun kill-line-or-region (&optional prefix)
+  "Behave as `kill-region PREFIX' if `mark-active' is true, otherwise as `kill-line PREFIX'."
+  (interactive "*P")
+  (if mark-active
+      (kill-region (region-beginning) (region-end) prefix)
+    (kill-line prefix)))
+
+(global-set-key (kbd "C-k") 'kill-line-or-region)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'editing)

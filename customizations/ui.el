@@ -76,21 +76,6 @@
 ;; Can be added to the list of packages to auto install in "../init.el"
 (load-theme 'misterioso t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'apropos)
-
-;; Setup how Emacs interacts with OS.
-(setq
- ;; Commands C-w and C-y to use the clipboard selection.
- x-select-enable-clipboard t
- ;; Commands C-w and C-y to use the primary selection.
- x-select-enable-primary t
- ;; Save clipboard strings into kill ring before replacing them.
- save-interprogram-paste-before-kill nil
- ;; Apropos commands behave as if they had been given a prefix argument.
- apropos-do-all t
- ;; Yank at point regardless of click position.
- mouse-yank-at-point t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'ui)
