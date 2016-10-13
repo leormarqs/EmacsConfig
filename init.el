@@ -70,6 +70,7 @@
     company
     company-ghc
     w3m
+    undo-tree
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -108,7 +109,9 @@
     "miscellaneous"      ;; Miscellaneous Commands
     "setup-company-mode" ;; Company Mode Commands
     "setup-haskell"      ;; Haskell Mode Commands
-    "setup-w3m"))
+    "setup-w3m"          ;; W3M Mode Commands
+    "setup-undo-tree"    ;; Undo Tree Commands
+    ))
 
 (dolist (c my-customizations)
   (load (concat my-customizations-folder c ".el")))
