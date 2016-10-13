@@ -39,12 +39,8 @@
 ;;; Code:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Company stands for "complete anything" and is a modular in-buffer completion
-;; mechanism. We will use it to enable Rust code autocomplete.
-
-(require 'company-racer)
-
-;; Turn on company mode
-;(setq company-tooltip-align-annotations t)
+;; mechanism.
+(require 'company)
 
 ;; Enable company globally for all mode
 (global-company-mode)
@@ -56,7 +52,6 @@
 (setq company-minimum-prefix-length 1)
 
 (with-eval-after-load 'company
-  (add-to-list 'company-backends 'company-racer)
   (add-to-list 'company-backends 'company-ghc))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
