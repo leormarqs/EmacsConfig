@@ -54,6 +54,9 @@
 ;; Automatic indent key bind.
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
+;;Align Region
+(global-set-key (kbd "C-x a r") 'align-regexp)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Flycheck provides on-the-fly syntax checking for buffers.
 ;; It runs various linting tools and services to automatically check the

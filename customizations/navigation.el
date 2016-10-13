@@ -43,8 +43,8 @@
 ;; you can then access this list through a command or the menu.
 
 ;; Turn on recent files mode
-(setq recentf-save-file (concat user-emacs-directory ".recentf"))
 (require 'recentf)
+(setq recentf-save-file (concat user-emacs-directory ".recentf"))
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
@@ -57,6 +57,7 @@
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
 
 ;; Turn on interactively do thing mode
+(require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point nil)
@@ -81,6 +82,7 @@
 
 ;; Turn on smex mode (Must be installed first)
 ;; Can be added to the list of packages to auto install in "../init.el"
+(require 'smex)
 (setq smex-save-file (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)

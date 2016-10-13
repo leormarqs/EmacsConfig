@@ -77,6 +77,7 @@
 (load-theme 'misterioso t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'apropos)
 
 ;; Setup how Emacs interacts with OS.
 (setq
@@ -85,7 +86,7 @@
  ;; Commands C-w and C-y to use the primary selection.
  x-select-enable-primary t
  ;; Save clipboard strings into kill ring before replacing them.
- save-interprogram-paste-before-kill t
+ save-interprogram-paste-before-kill nil
  ;; Apropos commands behave as if they had been given a prefix argument.
  apropos-do-all t
  ;; Yank at point regardless of click position.
