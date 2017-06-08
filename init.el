@@ -71,6 +71,7 @@
     company-ghc
     w3m
     undo-tree
+    elm-mode
     ))
 
 ;; On OS X, an Emacs instance started from the graphical user
@@ -111,6 +112,7 @@
     "setup-haskell"      ;; Haskell Mode Commands
     "setup-w3m"          ;; W3M Mode Commands
     "setup-undo-tree"    ;; Undo Tree Commands
+    "setup-elm"          ;; Elm Mode Commands
     ))
 
 (dolist (c my-customizations)
@@ -123,7 +125,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(package-selected-packages
+   (quote
+    (elm-mode undo-tree w3m company-ghc company projectile flycheck smex ido-ubiquitous))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
